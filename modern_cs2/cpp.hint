@@ -1,0 +1,8 @@
+// Hint files help the Visual Studio IDE interpret Visual C++ identifiers
+// such as names of functions and macros.
+// For more information see https://go.microsoft.com/fwlink/?linkid=865984
+
+#define DECLARE_MEMBER(type, name, address) auto name() -> type { return driver->read<type>(reinterpret_cast<std::uintptr_t>(this) + address); }
+#define GET_NETVAR(type,name,address)  static const type name = address;
+#define DECRYPT_LIST_ENTRY(entity_list) ((entity_list) + (8 * (i & 0x7FFF) >> 9) + 16)
+#define DECRYPT_BASE_PLAYER(list_entry) ((list_entry) + (120 * (i & 0x1FF)))
